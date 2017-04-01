@@ -21,18 +21,6 @@ async def on_ready():
     print('ID : %s' % bot.user.id)
     print(discord.__version__)
 
-@bot.command(pass_context=True)
-async def choose(*choices : str):
-    """Chooses between multiple choices."""
-    await bot.say(random.choice(choices))
-
-@bot.event
-async def on_message(message):
-    if message.content.startswith('!whereami'):
-        msg = await bot.send_message(message.author, '10')
-        await bot.sleep(3)
-        await bot.edit_message(msg, '40')
-
 @bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
